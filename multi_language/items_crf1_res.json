@@ -1,0 +1,80 @@
+{
+	"TEXT_ITEM1": {
+		"type": "input",
+		"en": {
+			"lit": "lit en for item 1",
+			"rit": "rit en for item 1",
+			"units": "en1"
+		},
+		"pt": {
+			"lit": "lit pt for item 1",
+			"rit": "rit pt for item 1",
+			"units": "pt1"
+		},
+		"nl": {
+			"lit": "lit nl for item 1",
+			"rit": "rit nl for item 1",
+			"units": "nl1"
+		}
+	},
+	"TEXT_ITEM2": {
+		"type": "input",
+		"en": {
+			"lit": "lit en for item 2",
+			"rit": "rit en for item 2",
+			"units": "en2"
+		},
+		"pt": {
+			"lit": "lit pt for item 2",
+			"rit": "rit pt for item 2",
+			"units": "pt2"
+		},
+		"nl": {
+			"lit": "lit nl for item 2",
+			"rit": "rit nl for item 2",
+			"units": "nl2"
+		}
+	},
+	"SELECT_ITEM": {
+		"type": "select",
+		"en": {
+			"lit": "lit en for select",
+			"rit": "rit en for select",
+			"units": "",
+			"options": ["", "one", "two", "three"]
+		},
+		"pt": {
+			"lit": "lit pt for select",
+			"rit": "rit pt for select",
+			"units": "",
+			"options": ["", "un", "dos", "tres"]
+		},
+		"nl": {
+			"lit": "lit nl for select",
+			"rit": "rit nl for select",
+			"units": "",
+			"options": ["", "een", "twee", "drie"]
+		}
+	},
+	"RADIO_ITEM": {
+		"type": "radio",
+		"en": {
+			"lit": "lit en for radio",
+			"rit": "rit en for radio",
+			"units": "",
+			"options": ["four", "five", "six"]
+		},
+		"pt": {
+			"lit": "lit pt for radio",
+			"rit": "rit pt for radio",
+			"units": "",
+			"options": ["quatro", "cinque", "seix"]
+		},
+		"nl": {
+			"lit": "lit nl for radio",
+			"rit": "rit nl for radio",
+			"units": "",
+			"options": ["vier", "vijf", "zes"]
+		}
+	}
+}
