@@ -34,8 +34,8 @@ function eraseCookie(name) {
 // script to create the language selector
 function showLanguageSelector(){
 	var select_html = "";								// the composed html for the select
-	var languages = ["en","pt","ru","nl"];
-	select_html = "en/pt/ru/nl: <select id='language_selector'>";
+	var languages = ["en","ru", "ee"];
+	select_html = "en/ru/ee: <select id='language_selector'>";
 	languages.forEach(function(language){
 		select_html = select_html + "<option value='" + language + "'>" + language;
 	})
@@ -65,6 +65,7 @@ jQuery(document).ready(function($) {
 	$.ajax({
 		type: "GET",
 		url: "multi_language/items_crf1.json",
+		async: true,
 		dataType: "json",
 		success: saveTranslations
 	});
