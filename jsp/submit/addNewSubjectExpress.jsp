@@ -76,7 +76,7 @@
 						<option value=""><fmt:message key="event" bundle="${resword}"/>:</option>
 						<c:forEach var="event" items="${allDefsArray}">
 						  <option value="<c:out value="${event.id}"/>"><c:out value="${event.name}"/></option>
-						</c:forEach>											
+						</c:forEach>
 						</select>
 					</td>
 					 <c:set var="tabCount" value="${tabCount+1}"/>
@@ -199,5 +199,5 @@
 	</tr>
 </table>
 
-addNewSubjectExpress.jsp
+
 <DIV ID="testdiv1" STYLE="position:absolute;z-index:5;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>

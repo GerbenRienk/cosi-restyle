@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start of showStudySubjectRow.jsp -->
+
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
 <c:set var="dteFormat"><fmt:message key="date_format_string" bundle="${resformat}"/></c:set>
@@ -11,14 +11,14 @@
 
 <jsp:useBean scope="request" id="currRow" class=
         "org.akaza.openclinica.web.bean.DisplayStudySubjectRow" />
-<c:set var="groups" value="5"/>
+<c:set var="groups" value="6"/>
 <c:forEach var="group" items="${currRow.bean.studyGroups}">
     <c:set var="groups" value="${groups+1}"/>
 </c:forEach>
 <tr valign="top">
 <c:choose>
     <c:when test ="${currRow.sortingColumn >= 1 && currRow.sortingColumn < groups}">
-        <td class="table_cell_left"><c:out value="${currRow.bean.studySubject.label}"/>&nbsp; line 21</td>
+        <td class="table_cell_left"><c:out value="${currRow.bean.studySubject.label}"/>&nbsp;</td>
         <td class="table_cell" style="display: all" id="Groups_0_1_<c:out value="${eblRowCount+1}"/>">
             <c:choose>
                 <c:when test="${currRow.bean.studySubject.status.id==1 || currRow.bean.studySubject.status.id==8 }">
@@ -33,15 +33,17 @@
         <td class="table_cell" style="display: all" id="Groups_0_2_<c:out value="${eblRowCount+1}"/>"><c:out value="${currRow.bean.studySubject.oid}"/>&nbsp;</td>
         <td class="table_cell" style="display: all" id="Groups_0_3_<c:out value="${eblRowCount+1}"/>"><c:out value="${currRow.bean.studySubject.gender}"/>&nbsp;</td>
         <td class="table_cell" style="display: all" id="Groups_0_4_<c:out value="${eblRowCount+1}"/>"><c:out value="${currRow.bean.studySubject.secondaryLabel}"/>&nbsp;</td>
+        <td class="table_cell" style="display: all" id="Groups_0_5_<c:out value="${eblRowCount+1}"/>"><c:out value="${currRow.bean.subject.uniqueIdentifier}"/> </td>
+
         <%-- This value should not be hard-coded --%>
-        <c:set var="groupCount" value="5"/>
+        <c:set var="groupCount" value="6"/>
         <c:forEach var="group" items="${currRow.bean.studyGroups}">
             <td class="table_cell" style="display: all" id="Groups_0_<c:out value="${groupCount}"/>_<c:out value="${eblRowCount+1}"/>"><c:out value="${group.studyGroupName}"/>&nbsp;</td>
             <c:set var="groupCount" value="${groupCount+1}"/>
         </c:forEach>
     </c:when>
     <c:otherwise>
-        <td class="table_cell_left"><c:out value="${currRow.bean.studySubject.label}"/>&nbsp; line 44</td>
+        <td class="table_cell_left"><c:out value="${currRow.bean.studySubject.label}"/>&nbsp;</td>
         <td class="table_cell" style="display: none" id="Groups_0_1_<c:out value="${eblRowCount+1}"/>">
             <c:choose>
                 <c:when test="${currRow.bean.studySubject.status.id==1 || currRow.bean.studySubject.status.id==8 }">
@@ -56,8 +58,9 @@
         <td class="table_cell" style="display: none" id="Groups_0_2_<c:out value="${eblRowCount+1}"/>"><c:out value="${currRow.bean.studySubject.oid}"/>&nbsp;</td>
         <td class="table_cell" style="display: none" id="Groups_0_3_<c:out value="${eblRowCount+1}"/>"><c:out value="${currRow.bean.studySubject.gender}"/>&nbsp;</td>
         <td class="table_cell" style="display: none" id="Groups_0_4_<c:out value="${eblRowCount+1}"/>"><c:out value="${currRow.bean.studySubject.secondaryLabel}"/>&nbsp;</td>
+        <td class="table_cell" style="display: none" id="Groups_0_5_<c:out value="${eblRowCount+1}"/>"><c:out value="${currRow.bean.subject.uniqueIdentifier}"/> </td>
 
-        <c:set var="groupCount" value="5"/>
+        <c:set var="groupCount" value="6"/>
         <c:forEach var="group" items="${currRow.bean.studyGroups}">
             <td class="table_cell" style="display: none" id="Groups_0_<c:out value="${groupCount}"/>_<c:out value="${eblRowCount+1}"/>"><c:out value="${group.studyGroupName}"/>&nbsp;</td>
             <c:set var="groupCount" value="${groupCount+1}"/>
@@ -92,16 +95,16 @@
                     <c:choose>
                         <c:when test="${event.subjectEventStatus.id==1}">
 
-                            <img src="images/icon_Scheduled.gif"  border="0" style="position: relative; left: 7px;"> 1
+                            <img src="images/icon_Scheduled.gif"  border="0" style="position: relative; left: 7px;">
                         </c:when>
                         <c:when test="${event.subjectEventStatus.id==2}">
 
-                            <img src="images/icon_NotStarted.gif"  border="0" style="position: relative; left: 7px;"> 2
+                            <img src="images/icon_NotStarted.gif"  border="0" style="position: relative; left: 7px;">
 
                         </c:when>
                         <c:when test="${event.subjectEventStatus.id==3}">
 
-                            <img src="images/icon_InitialDE.gif"  border="0" style="position: relative; left: 7px;"> 3
+                            <img src="images/icon_InitialDE.gif"  border="0" style="position: relative; left: 7px;">
 
                         </c:when>
                         <c:when test="${event.subjectEventStatus.id==4}">

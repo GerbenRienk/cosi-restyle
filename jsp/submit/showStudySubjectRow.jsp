@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start submit/showStudySubjectRow.jsp -->
+
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>  
 
 
@@ -98,11 +98,11 @@
         <c:choose>
         <c:when test="${event.subjectEventStatus.id==1}">  
          
-	      <img src="images/icon_Scheduled.gif"  border="0" style="position: relative; left: 7px;"> 1
+	      <img src="images/icon_Scheduled.gif"  border="0" style="position: relative; left: 7px;">	         
          </c:when>
         <c:when test="${event.subjectEventStatus.id==2}">
          
-         <img src="images/icon_NotStarted.gif"  border="0" style="position: relative; left: 7px;"> 2
+         <img src="images/icon_NotStarted.gif"  border="0" style="position: relative; left: 7px;">     
         
         </c:when>
         <c:when test="${event.subjectEventStatus.id==3}">
@@ -202,4 +202,3 @@
       </td>
    </tr>
    
-<!-- start submit/showStudySubjectRow.jsp -->

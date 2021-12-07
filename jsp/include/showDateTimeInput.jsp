@@ -1,10 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <%@ page import="org.akaza.openclinica.i18n.util.*" %>
 <%@ page import="java.util.ResourceBundle" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start include/showDateTimeInput.jsp -->
+
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/> 
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/> 
 
@@ -140,4 +141,3 @@
 <input type="hidden" name="<c:out value="${halfFieldName}"/>" value=""/>
 <% } %>
 </td>
-<!-- end include/showDateTimeInput.jsp -->

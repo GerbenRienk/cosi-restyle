@@ -63,9 +63,7 @@
 </c:choose>
 
 <fmt:message key="import_crf_data" bundle="${resworkflow}"/>
-<a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/submit-data-module-overview/import-data')">
-    <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${restext}"/>" title="<fmt:message key="help" bundle="${restext}"/>">
-</a></h1>
+</h1>
 <p><fmt:message key="import_instructions" bundle="${restext}"/></p>
 
 
@@ -81,7 +79,7 @@
 	<td class="formlabel"><!--<fmt:message key="xml_file_to_upload" bundle="${resterms}"/>:--></td>
 	<td>
 		<div class="formfieldFile_BG">
-			<input type="file" name="xml_file" >
+			<input type="file" name="xml_file" class="no-border">
 
 		</div>
 		<br><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="xml_file"/></jsp:include>

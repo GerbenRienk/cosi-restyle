@@ -8,7 +8,7 @@
 	<c:import url="../include/showPanel.jsp"/>
 	(this will pull all information from the panel
 --%>
-<!-- start include/showPanel.jsp -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:useBean scope="session" id="panel" class="org.akaza.openclinica.view.StudyInfoPanel" />
@@ -26,4 +26,3 @@
 <%  } else {
 %><jsp:include page="<c:out var='request.panelURL'/>"/>
 <%  }  %>
-<!-- end include/showPanel.jsp -->

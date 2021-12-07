@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start include/submitDataSide.jsp -->
   <c:choose>	   
 		<c:when test="${panel.orderedData}">
 		 <c:set var="count" value="0"/>
@@ -112,4 +111,3 @@
 		    </c:forEach>
 		</c:otherwise>
 	  </c:choose>
-<!-- end include/submitDataSide.jsp -->

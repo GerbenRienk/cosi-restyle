@@ -4,7 +4,7 @@
 <%@ page import="org.akaza.openclinica.bean.core.SubjectEventStatus"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start of submit/showEventsForSubjectRow.jsp -->
+
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.terms" var="resterm"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
@@ -111,21 +111,21 @@
     <c:choose>
         <c:when test="${event.studyEvent.subjectEventStatus.id==1}">
            <%-- ${crfIsHidden ? altMessage : ''}--%>
-            <img alt="" title="" src="images/icon_Scheduled.gif"  border="0" style="position: relative; left: 7px;"> 1
+            <img alt="" title="" src="images/icon_Scheduled.gif"  border="0" style="position: relative; left: 7px;">
 
         </c:when>
         <c:when test="${event.studyEvent.subjectEventStatus.id==2}">
-            <img alt="" title="" src="images/icon_NotStarted.gif"  border="0" style="position: relative; left: 7px;"> 2
+            <img alt="" title="" src="images/icon_NotStarted.gif"  border="0" style="position: relative; left: 7px;">
 
 
         </c:when>
         <c:when test="${event.studyEvent.subjectEventStatus.id==3}">
-            <img alt="" title="" src="images/icon_InitialDE.gif"  border="0" style="position: relative; left: 7px;"> 3
+            <img alt="" title="" src="images/icon_InitialDE.gif"  border="0" style="position: relative; left: 7px;">
 
 
         </c:when>
         <c:when test="${event.studyEvent.subjectEventStatus.id==4}">
-            <img alt="" title="" src="images/icon_DEcomplete.gif"  border="0" style="position: relative; left: 7px;"> 4
+            <img alt="" title="" src="images/icon_DEcomplete.gif"  border="0" style="position: relative; left: 7px;">
 
         </c:when>
         <c:when test="${event.studyEvent.subjectEventStatus.id==5}">
@@ -530,4 +530,3 @@
 
 </c:otherwise>
 </c:choose>
-<!-- end of submit/showEventsForSubjectRow.jsp -->

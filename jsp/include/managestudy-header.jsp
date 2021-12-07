@@ -49,7 +49,7 @@
 <script type="text/JavaScript" language="JavaScript" src="includes/effects.js"></script>--%></head>
 
 
-<body style="width:1024px;" class="main_BG"
+<body class="main_BG"
 
 <c:choose>
 

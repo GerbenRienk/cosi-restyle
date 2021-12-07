@@ -7,7 +7,7 @@
 
  <c:set var="imagePathPrefix" value="${imagePathPrefix}" />
  <c:set var="module" value="${param.module}"/>
-<br> <br>
+<br><br>
 
 <!-- EXPANDING WORKFLOW BOX -->
 
@@ -115,7 +115,7 @@
 				</table>
 
 
-		<!-- end Workflow items, all of them -->
+		<!-- end Workflow items -->
 
 				</div>
 			</div></div></div>
@@ -125,5 +125,5 @@
 	</td>
    </tr>
 </table>
-<script>leftnavExpand('sidebar_Workflow_closed'); leftnavExpand('sidebar_Workflow_open');</script>
+
 <!-- END WORKFLOW BOX -->

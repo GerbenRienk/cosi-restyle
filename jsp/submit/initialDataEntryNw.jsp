@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="com.akazaresearch.tags" prefix="aka_frm" %>
-<!-- start of submit/initialDataEntryNw.jsp -->
+
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
@@ -25,7 +25,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head><title>OpenClinica <fmt:message key="initial_data_entry" bundle="${resword}"/></title>
+<head><title><fmt:message key="openclinica" bundle="${resword}"/> <fmt:message key="initial_data_entry" bundle="${resword}"/></title>
     <meta http-equiv="X-UA-Compatible" content="IE=8" />
 
     <link rel="stylesheet" href="includes/styles.css" type="text/css" media="screen">
@@ -36,6 +36,7 @@
         var checkboxObject;
     </script>
     <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript.js"></script>
+	<script type="text/JavaScript" language="JavaScript" src="includes/instant_onchange.js"></script>
     <script type="text/JavaScript" language="JavaScript" src="includes/Tabs.js"></script>
     <script type="text/JavaScript" language="JavaScript" src="includes/CalendarPopup.js"></script>
     <script type="text/javascript"  language="JavaScript" src=
@@ -52,9 +53,10 @@
 	    <script type="text/javascript" src="includes/new_cal/lang/<fmt:message key="jscalendar_language_file" bundle="${resformat}"/>"></script>
 	    <script type="text/javascript" src="includes/new_cal/calendar-setup.js"></script>
     <!-- End -->
-
+    
+	
 </head>
-<body class="aka_bodywidth" onload=" document.getElementById('here').style.display='none'; document.getElementById('CRF_infobox_closed').style.display='block';document.getElementById('CRF_infobox_open').style.display='none';"  onunload="javascript:clsWin();" >
+<body class="aka_bodywidth" onload="<c:if test='${popUpURL != ""}'>openDNoteWindow('<c:out value="${popUpURL}" />');</c:if> document.getElementById('CRF_infobox_closed').style.display='block';document.getElementById('CRF_infobox_open').style.display='none';"  onunload="javascript:clsWin();" >
 
 <c:import url="../submit/showItemInputToolTipsJS.jsp"></c:import>
 
@@ -75,7 +77,7 @@
 </c:choose>
 
 <table width="75%"><tr><td>
-<h1><span class="title_manage"><b> <c:out value="${toc.crf.name}" /> <c:out value="${toc.crfVersion.name}" />
+<h1><span class="title_manage"> <b> <c:out value="${toc.crf.name}" /> <c:out value="${toc.crfVersion.name}" />
          <c:choose>
             <c:when test="${eventCRF.stage.initialDE}">
                 <img src="images/icon_InitialDE.gif" alt="<fmt:message key="initial_data_entry" bundle="${resword}"/>"
@@ -385,7 +387,10 @@ function initmb(){
 
 }
 
-window.onload = initmb;
+// this is neccessary since body.onload is overwritten 
+// by window.onload
+oldOnload = document.body.onload;
+window.onload = function(){oldOnload(); initmb();};
 
 //-->
 </script>
@@ -737,11 +742,12 @@ but the custom tag uses that, not this jstl code--%>
 
 <c:forEach var="bodyItemGroup" items="${displayItem.itemGroups}"  varStatus="status">
 <c:set var="columnNum"  value="1"/>
+<c:set var="editFlag" value="${bodyItemGroup.editFlag}"/>
 <!-- hasError is set to true when validation error happens-->
 
 <!-- JN: So, the cross button should not be displayed for the items which are present in the  -->
 <!--  not the last row -->
-<tr repeat="0" />
+<tr repeat="${uniqueId}" />
 <c:set var="columnNum"  value="1"/>
 	<c:set var="isButtonRemShow" value="true"/>
 <c:forEach var="bodyItem" items="${bodyItemGroup.items}">
@@ -798,6 +804,7 @@ but the custom tag uses that, not this jstl code--%>
                         <c:param name="isHorizontal" value="${isHorizontalCellLevel}"/>
                         <c:param name="defaultValue" value="${bodyItem.metadata.defaultValue}"/>
                         <c:param name="originJSP" value="initialDataEntry"/>
+			 <c:param name="editFlag" value="${editFlag}"/>
                     </c:import>
                 </td>
             </c:forEach>
@@ -825,6 +832,7 @@ but the custom tag uses that, not this jstl code--%>
                     <c:param name="tabNum" value="${itemNum}"/>
                     <c:param name="defaultValue" value="${bodyItem.metadata.defaultValue}"/>
                     <c:param name="originJSP" value="initialDataEntry"/>
+		     <c:param name="editFlag" value="${editFlag}"/>
                 </c:import>
                 <c:import url="../submit/generateGroupItemTxt.jsp">
                     <c:param name="itemId" value="${bodyItem.item.id}"/>
@@ -931,7 +939,7 @@ but the custom tag uses that, not this jstl code--%>
                             <c:param name="isHorizontal" value="${isHorizontalCellLevel}"/>
                             <c:param name="defaultValue" value="${bodyItem.metadata.defaultValue}"/>
                             <c:param name="originJSP" value="initialDataEntry"/>
-
+			     <c:param name="editFlag" value="${editFlag}"/>
                         </c:import>
                     </td>
                 </c:forEach>
@@ -960,6 +968,7 @@ but the custom tag uses that, not this jstl code--%>
                         <c:param name="tabNum" value="${itemNum}"/>
                         <c:param name="defaultValue" value="${bodyItem.metadata.defaultValue}"/>
                         <c:param name="originJSP" value="initialDataEntry"/>
+			 <c:param name="editFlag" value="${editFlag}"/>
                     </c:import>
                     <c:import url="../submit/generateGroupItemTxt.jsp">
                         <c:param name="itemId" value="${bodyItem.item.id}"/>
@@ -983,7 +992,7 @@ but the custom tag uses that, not this jstl code--%>
     <c:if test="${displayItem.itemGroup.groupMetaBean.repeatingGroup}">
     
                 <td class="aka_padding_norm aka_cellBorders">
-                    <input type="hidden" name="<c:out value="${repeatParentId}"/>_[<c:out value="${repeatParentId}"/>].newRow" value="yes" />
+                    <input type="hidden" name="<c:out value="${repeatParentId}"/>_manual[<c:out value="${repeatParentId}"/>].newRow" value="yes" />
 
                 <button stype="remove" type="button" template="<c:out value="${repeatParentId}"/>" class="button_remove" style="display:block;"></button>
                </td>
@@ -1179,7 +1188,7 @@ but the custom tag uses that, not this jstl code--%>
                                 </td>
                             </c:if>
                             <!--
-                            
+                            <td valign="top"><c:out value="${displayItem.singleItem.metadata.rightItemText}" escapeXml="false" /></td>
                             -->
                             <td valign="top">
 
@@ -1298,7 +1307,7 @@ but the custom tag uses that, not this jstl code--%>
                                     <td valign="top"> <c:out value="(${childItem.item.units})" escapeXml="false"/> </td>
                                 </c:if>
                                 <!--
-                                <td valign="top"> </td>-->
+                                <td valign="top"> <c:out value="${childItem.metadata.rightItemText}" escapeXml="false"/> </td>-->
                                 <td valign="top">
 
                                     <c:import url="../submit/generateLeftItemTxt.jsp">
@@ -1403,6 +1412,6 @@ table-->
 <div id="testdiv1" style=
   "position:absolute;visibility:hidden;background-color:white"></div>
 </div>
-<!-- end of submit/initialDataEntryNw.jsp -->
+
 </body>
 </html>

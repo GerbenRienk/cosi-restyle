@@ -1,10 +1,12 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start include/extract-header.jsp -->
+
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/> 
 <fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/> 
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/> 
+
 
 <jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
 <jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean' />
@@ -30,11 +32,11 @@
 
 </head>
 
-<body class="main_BG" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0"
+<body class="main_BG"
 	<jsp:include page="../include/showPopUp.jsp"/>
 >
 
-<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%" class="background">
+<table class="background">
 	<tr>
 		<td valign="top">
 <!-- Header Table -->
@@ -55,4 +57,3 @@ document.write('<table border="0" cellpadding="0" cellspacing="0" width="' + doc
 
 	<jsp:include page="../include/navBar.jsp"/>
 <!-- End Main Navigation -->
-<!-- end include/extract-header.jsp -->

@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.*" %>
-<!-- start include/showEntities.jsp -->
 <%
 ArrayList entities = request.getParameter("entities");
 Iterator it = entities.iterator();
@@ -19,4 +18,3 @@ while (it.hasNext()) {
 <%
 }
 %>
-<!-- end include/showEntities.jsp -->

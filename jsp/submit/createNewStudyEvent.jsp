@@ -27,7 +27,7 @@
 		</td>
 
 	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
+	<tr id="sidebar_Instructions_closed" style="display: inline">
 		<td class="sidebar_tab">
 
 		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
@@ -107,20 +107,14 @@
 <h1><span class="title_manage">
 <c:choose>
 	<c:when test="${requestStudySubject == requestStudySubjectFalse}">
-	
-<fmt:message key="schedule_study_event_for" bundle="${resword}"/><b> <c:out value="${chosenSubject.name}" /></b>
-        <a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/submit-data-module-overview/schedule-event')">
-            <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
+		<fmt:message key="schedule_study_event_for" bundle="${resword}"/><b> <c:out value="${chosenSubject.name}" /></b>
 	</c:when>
 	<c:otherwise>
-	
-<fmt:message key="schedule_study_event_for" bundle="${resword}"/>
-<a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/submit-data-module-overview/schedule-event#enterData')">
-<img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
+		<fmt:message key="schedule_study_event_for" bundle="${resword}"/>
 	</c:otherwise>
 </c:choose>
 </span></h1>
-<DIV ID="testdiv1" STYLE="position:absolute;visibility:hidden;background-color:white;layer-background-color:white;"></DIV>
+
 <script type="text/JavaScript" language="JavaScript">
   <!--
  function myCancel() {

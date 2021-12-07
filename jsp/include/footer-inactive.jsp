@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start include/footer-inactive.jsp --> 
+ 
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.licensing" var="licensing"/>
 
@@ -24,18 +25,9 @@ document.write('<table border="0" cellpadding=0" cellspacing="0" width="' + docu
 </script>
 			<tr>
 				<td class="footer">
-				<!--<a href="#">About OpenClinica</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">Terms of Use</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="#">Privacy Policy</a>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				-->
 				<a href="#"><fmt:message key="openclinica_portal" bundle="${resword}"/></a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="javascript:openDocWindow('https://docs.openclinica.com/')"><fmt:message key="help" bundle="${resword}"/></a>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<a href="javascript:reportBug()"><fmt:message key="openclinica_feedback" bundle="${resword}"/></a>
+				<a href="https://www.libreclinica.org/documentation" target="new"><fmt:message key="help" bundle="${resword}"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				
 				<a href="#"><fmt:message key="contact" bundle="${resword}"/></a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -52,7 +44,7 @@ document.write('<table border="0" cellpadding=0" cellspacing="0" width="' + docu
 	</tr>
 </table>
 		
-<!-- end include/footer-inactive.jsp -->
+
 </body>
 
 </html>

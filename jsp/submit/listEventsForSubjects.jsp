@@ -27,7 +27,7 @@
 
 
 <jsp:include page="../include/submit-header.jsp"/>
-
+<!-- start of submit/listEventsForSubjects -->
 
 <!-- move the alert message to the sidebar-->
 <jsp:include page="../include/sideAlert.jsp"/>
@@ -47,7 +47,7 @@
     </td>
 
 </tr>
-<tr id="sidebar_Instructions_closed" style="display: all">
+<tr id="sidebar_Instructions_closed" style="display: inline">
     <td class="sidebar_tab">
 
         <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
@@ -62,7 +62,7 @@
 <jsp:useBean scope='request' id='crf' class='org.akaza.openclinica.bean.admin.CRFBean'/>
 
 
-<h1><span class="title_manage">submit\listEventsForSubject.jsp 
+<h1><span class="title_manage">
 <fmt:message key="view_all_subjects_in" bundle="${restext}"/> <c:out value="${study.name}"/>
 </span></h1>
 
@@ -80,4 +80,5 @@
 <c:import url="../include/workflow.jsp">
    <c:param name="module" value="submit"/>
 </c:import>
+<!-- end of submit/listEventsForSubjects -->
 <jsp:include page="../include/footer.jsp"/>

@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
-<!-- start include/home-header.jsp -->
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
@@ -11,47 +10,34 @@
 <jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean' />
 <jsp:useBean scope='session' id='userRole' class='org.akaza.openclinica.bean.login.StudyUserRoleBean' />
 <jsp:useBean scope='request' id='isAdminServlet' class='java.lang.String' />
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <c:set var="contextPath" value="${fn:replace(pageContext.request.requestURL, fn:substringAfter(pageContext.request.requestURL, pageContext.request.contextPath), '')}" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=8" />
-
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
 
 <title><fmt:message key="openclinica" bundle="${resword}"/></title>
 
-<link rel="stylesheet" href="includes/styles.css" type="text/css"/>
-<%-- <link rel="stylesheet" href="includes/styles2.css" type="text/css">--%>
-<%-- <link rel="stylesheet" href="includes/NewNavStyles.css" type="text/css" />--%>
-<script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript.js"></script>
-<%-- <script type="text/JavaScript" language="JavaScript" src="includes/global_functions_javascript2.js"></script> --%>
-<script type="text/JavaScript" language="JavaScript" src="includes/Tabs.js"></script>
-<script type="text/JavaScript" language="JavaScript" src="includes/CalendarPopup.js"></script>
-<script type="text/JavaScript" language="JavaScript" src=
-  "includes/repetition-model/repetition-model.js"></script>
-  <script type="text/JavaScript" language="JavaScript" src="includes/prototype.js"></script>
-  <script type="text/JavaScript" language="JavaScript" src="includes/scriptaculous.js?load=effects"></script>
-  <script type="text/JavaScript" language="JavaScript" src="includes/effects.js"></script>
-    <!-- Added for the new Calender -->
-	
-    <link rel="stylesheet" type="text/css" media="all" href="includes/new_cal/skins/aqua/theme.css" title="Aqua" />
-    <script type="text/javascript" src="includes/new_cal/calendar.js"></script>
-     <!--  fix for issue 14427 Removed the mapping with wrong file name calendar_en.js-->
-      <script type="text/javascript" src="includes/new_cal/lang/calendar-en.js"></script>
-      <script type="text/javascript" src="includes/new_cal/lang/<fmt:message key="jscalendar_language_file" bundle="${resformat}"/>"></script>
-    <script type="text/javascript" src="includes/new_cal/calendar-setup.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/includes/styles.css" type="text/css"/>
+<script type="text/JavaScript" src="${pageContext.request.contextPath}/includes/global_functions_javascript.js"></script>
+<script type="text/JavaScript" src="${pageContext.request.contextPath}/includes/Tabs.js"></script>
+<script type="text/JavaScript" src="${pageContext.request.contextPath}/includes/CalendarPopup.js"></script>
+<script type="text/JavaScript" src="${pageContext.request.contextPath}/includes/repetition-model/repetition-model.js"></script>
+<script type="text/JavaScript" src="${pageContext.request.contextPath}/includes/prototype.js"></script>
+<script type="text/JavaScript" src="${pageContext.request.contextPath}/includes/jmesa/jquery.min.js"></script><script language="JavaScript">jQuery.noConflict();</script>
+<script type="text/JavaScript" src="${pageContext.request.contextPath}/includes/scriptaculous.js?load=effects"></script>
+<script type="text/JavaScript" src="${pageContext.request.contextPath}/includes/effects.js"></script>
+
+<link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath}/includes/new_cal/skins/aqua/theme.css" title="Aqua" />
+
+<script type="text/javascript" src="${pageContext.request.contextPath}/includes/new_cal/calendar.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/includes/new_cal/lang/calendar-en.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/includes/new_cal/lang/<fmt:message key="jscalendar_language_file" bundle="${resformat}"/>"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/includes/new_cal/calendar-setup.js"></script>
 <!-- End -->
 
     <script language="JavaScript">
-        function reportBug() {
-            var bugtrack = "https://www.openclinica.com/OpenClinica/bug.php?version=<fmt:message key="version_number" bundle="${resword}"/>&user=";
-            var user= "<c:out value="${userBean.name}"/>";
-            bugtrack = bugtrack + user+ "&url=" + window.location.href;
-            openDocWindow(bugtrack);
-        }
         function pageWidth() {return window.innerWidth != null? window.innerWidth: document.documentElement && document.documentElement.clientWidth ? document.documentElement.clientWidth:document.body != null? document.body.clientWidth:null;}
         function pageHeight() {return window.innerHeight != null? window.innerHeight: document.documentElement && document.documentElement.clientHeight ? document.documentElement.clientHeight:document.body != null? document.body.clientHeight:null;}
         function posLeft() {return typeof window.pageXOffset != 'undefined' ? window.pageXOffset:document.documentElement && document.documentElement.scrollLeft? document.documentElement.scrollLeft:document.body.scrollLeft? document.body.scrollLeft:0;}
@@ -69,39 +55,27 @@
         }
     </script>
 
+<script language="JavaScript">var StatusBoxValue=1;</script>
 </head>
 
-<body class="main_BG" >
+<body 
     <c:if test="${(study.status.locked || study.status.frozen)}">
         <c:if test="${userBean.numVisitsToMainMenu<=1 || studyJustChanged=='yes'}">
             onload="initmb();sm('box', 730,100);"
          </c:if>
       </c:if>
     <jsp:include page="../include/showPopUp.jsp"/>
+>
 
-
-<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%" class="background">
+<table class="background">
     <tr>
-        <td valign="top">
+        <td>
 <!-- Header Table -->
-<script language="JavaScript">
-	var StatusBoxValue=1;
-	</script>
-
-<SCRIPT LANGUAGE="JavaScript">
-
-document.write('<table border="0" cellpadding="0" cellspacing="0" width="' + document.body.clientWidth + '" class="header">');
-
-</script>
+<table class="header">
             <tr>
-                <td valign="top">
-
+                <td>
 <!-- Logo -->
-
-    <div class="logo"><img src="images/Logo.gif"></div>
-
+    <div class="logo"><img src="${pageContext.request.contextPath}/images/Logo.gif"></div>
 <!-- Main Navigation -->
-
     <jsp:include page="../include/navBar.jsp"/>
 <!-- End Main Navigation -->
-<!-- end include/home-header.jsp -->

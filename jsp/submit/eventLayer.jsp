@@ -37,7 +37,7 @@
 <c:set var="removedi18n"><fmt:message key="removed" bundle="${resterm}"/></c:set>
 <c:set var="notscheduledi18n"><fmt:message key="not_scheduled" bundle="${resterm}"/></c:set>
 <c:set var="signedi18n"><fmt:message key="signed" bundle="${resterm}"/></c:set>
-<!-- start of submit\eventLayer.jsp -->
+
 <%-- for setting the div width...--%>
 <c:choose>
   <c:when test="${currEvent.repeatingNum >= 3}">
@@ -557,4 +557,3 @@
 				"layersShowOrHide('hidden','Event_<c:out value="${subjectName}"/>_<c:out value="${count}"/>_<c:out value="${eblRowCount}"/>'); setImage('ExpandIcon_<c:out value="${subjectName}"/>_<c:out value="${count}"/>_<c:out value="${eblRowCount}"/>','images/icon_blank.gif');"
 				onClick=
 				"layersShowOrHide('visible','Lock_all'); LockObject('Lock_<c:out value="${subjectName}"/>_<c:out value="${count}"/>_<c:out value="${eblRowCount}"/>', event);">
-<!-- start of submit\eventLayer.jsp -->

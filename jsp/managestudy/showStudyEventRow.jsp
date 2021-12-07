@@ -14,13 +14,13 @@
             (<c:out value="${currRow.bean.studyEvent.sampleOrdinal}"/>)
         </c:if>
      </td>
-     <td class="table_cell"><span class="not_for_cosi"><fmt:formatDate value="${currRow.bean.studyEvent.dateStarted}" pattern="${dteFormat}"/></span>
+     <td class="table_cell"><fmt:formatDate value="${currRow.bean.studyEvent.dateStarted}" pattern="${dteFormat}"/>
      </td>
     
      <td class="table_cell"><c:out value="${currRow.bean.studyEvent.location}"/></td>
      <td class="table_cell" width="20"><c:out value="${currRow.bean.studyEvent.subjectEventStatus.name}"/></td>
      <td class="table_cell">
-       <table border="0" cellpadding="0" cellspacing="0" class='not_for_cosi'>
+       <table border="0" cellpadding="0" cellspacing="0">
 		<tr>
 		<td> 
         <a href="EnterDataForStudyEvent?eventId=<c:out value="${currRow.bean.studyEvent.id}"/>"

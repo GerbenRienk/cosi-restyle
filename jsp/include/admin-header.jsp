@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start include/admin-header.jsp -->
+
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
@@ -10,7 +11,6 @@
 <jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean' />
 <jsp:useBean scope='session' id='userRole' class='org.akaza.openclinica.bean.login.StudyUserRoleBean' />
 <jsp:useBean scope='request' id='isAdminServlet' class='java.lang.String' />
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,7 +43,10 @@
 <!-- End -->
 
 </head>
-<body style="width:1024px;" class="main_BG"
+ <%-- style="width:1152px;" I removed this include because you cannot have both
+ 	"onLoad" tests: <jsp:include page="../include/showPopUp.jsp"/> reduce file size--%>
+ 	<%--  --%>
+<body class="main_BG"
 <c:choose>
 <c:when test="${tabId != null && tabId>0}">
 onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../include/showPopUp2.jsp"/>"
@@ -70,4 +73,3 @@ onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../includ
 
 	<jsp:include page="../include/navBar.jsp"/>
 <!-- End Main Navigation -->
-<!-- end include/admin-header.jsp -->

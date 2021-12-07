@@ -9,7 +9,7 @@
 
 		<a href="javascript:leftnavExpand('sidebar_IconKey_open'); leftnavExpand('sidebar_IconKey_closed');"><img src="images/sidebar_collapse.gif" border="0" align="right" hspace="10"></a>
 
-		<b>sideIcons.jsp <fmt:message key="icon_key" bundle="${reswords}"/></b><br clear="all"><br>
+		<b><fmt:message key="icon_key" bundle="${reswords}"/></b><br clear="all"><br>
 
 		<table border="0" cellpadding="4" cellspacing="0">
 		   <tr>
@@ -50,8 +50,6 @@
 		</table>
 
 		<div class="sidebar_tab_content">
-
-			<a href="#" onClick="openDefWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/overview-openclinica/home-page#content-title-3610'); return false;"><fmt:message key="view_all_icons" bundle="${reswords}"/></a>
 
 		</div>
 

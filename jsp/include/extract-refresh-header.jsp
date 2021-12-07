@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start include/extract-refresh-header.jsp -->
+
 
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
@@ -76,4 +77,3 @@ function sendToPage() {
 
 	<jsp:include page="../include/navBar.jsp"/>
 <!-- End Main Navigation -->
-<!-- end include/extract-refresh-header.jsp -->

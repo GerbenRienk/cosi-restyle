@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start include/submit-header-inactive.jsp -->
+
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
@@ -66,4 +67,3 @@ document.write('<table border="0" cellpadding="0" cellspacing="0" width="' +
 
    <jsp:include page="../include/navBar.jsp"/>
     <!-- End Main Navigation -->
-<!-- start include/submit-header-inactive.jsp -->

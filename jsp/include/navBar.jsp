@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="org.akaza.openclinica.i18n.util.ResourceBundleProvider" %>
-<!-- start include/navBar.jsp -->
+
 <fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
@@ -57,7 +57,7 @@
 <c:if test="${tableFacadeRestore=='false'}"><c:set var="restore" value="false"/></c:if>
 <c:set var="profilePage" value="${param.profilePage}"/>
 <!--  If Controller Spring based append ../ to urls -->
-<c:set var="urlPrefix" value=""/>
+<c:set var="urlPrefix" value="${pageContext.request.contextPath}/"/>
 <c:set var="requestFromSpringController" value="${param.isSpringController}" />
 <c:if test="${requestFromSpringController == 'true' }">
       <c:set var="urlPrefix" value="${pageContext.request.contextPath}/"/>
@@ -84,21 +84,20 @@
             </a>&nbsp;|&nbsp;
             <a href="${urlPrefix}j_spring_security_logout"><fmt:message key="log_out" bundle="${resword}"/></a>
         </div>
-        <br/><br style="line-height: 4px;"/>
-        <div class="box_T"><div class="box_L"><div class="box_R"><div class="box_B"><div class="box_TL"><div class="box_TR"><div class="box_BL"><div class="box_BR">
-
-            <div class="navbox_center">
+        <br/>
+        
+		<div class="navbox_center">
                 <!-- Top Navigation Row -->
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <table >
                     <tr>
                         <td>
-                            <div id="bt_Home" class="nav_bt"><div><div><div>
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <div id="bt_Home" class="nav_bt">
+                            <table class="navbox_center">
                                 <tr>
                                     <td>
                                         <ul>
                                         <c:if test="${userRole.coordinator || userRole.director}">
-                                            <li><a href="${urlPrefix}MainMenu"><fmt:message key="nav_home" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li> 
+                                            <li><a href="${urlPrefix}MainMenu"><fmt:message key="nav_home" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
                                             <li><a href="${urlPrefix}ListStudySubjects"><fmt:message key="nav_subject_matrix" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
                                             <li><a href="${urlPrefix}ViewNotes?module=submit"><fmt:message key="nav_notes_and_discrepancies" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
                                             <li><a href="${urlPrefix}StudyAuditLog"><fmt:message key="nav_study_audit_log" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
@@ -112,11 +111,11 @@
                                             <li><a href="${urlPrefix}ViewNotes?module=submit"><fmt:message key="nav_notes_and_discrepancies" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
                                         </c:if>
                                         <c:if test="${userRole.investigator}">
-<%--                                            <li><a href="${urlPrefix}MainMenu"><fmt:message key="nav_home" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li> --%>
+                                            <li><a href="${urlPrefix}MainMenu"><fmt:message key="nav_home" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
                                             <li><a href="${urlPrefix}ListStudySubjects"><fmt:message key="nav_subject_matrix" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-<%--                                            <c:if test="${study.status.available}">
+                                            <c:if test="${study.status.available}">
                                                 <li><a href="${urlPrefix}AddNewSubject"><fmt:message key="nav_add_subject" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
-                                            </c:if> ******** --%>
+                                            </c:if>
                                             <li><a href="${urlPrefix}ViewNotes?module=submit"><fmt:message key="nav_notes_and_discrepancies" bundle="${resword}"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
                                         </c:if>
                                         <c:if test="${userRole.monitor }">
@@ -131,42 +130,36 @@
                                         </li>
                                         </ul>
                                     </td>
-                                    <td align="right" style="font-weight: normal;">
-
+                                    <td >
+										<div id="SearchBox">
                                         <form METHOD="GET" action="${urlPrefix}ListStudySubjects" onSubmit=" if (document.forms[0]['findSubjects_f_studySubject.label'].value == '<fmt:message key="study_subject_ID" bundle="${resword}"/>') { document.forms[0]['findSubjects_f_studySubject.label'].value=''}">
-                                            <!--<a href="javascript:reportBug()"><fmt:message key="openclinica_report_issue" bundle="${resword}"/></a>&nbsp;|&nbsp;-->
-                                            <a href="javascript:openDocWindow('<c:out value="${sessionScope.supportURL}" />')"><fmt:message key="openclinica_feedback" bundle="${resword}"/></a>&nbsp;&nbsp;
+                                            <c:if test="${not empty sessionScope.supportURL}">
+                                            	<a href="javascript:openDocWindow('<c:out value="${sessionScope.supportURL}" />')"><fmt:message key="openclinica_feedback" bundle="${resword}"/></a>&nbsp;&nbsp;
+                                            </c:if>
                                             <input type="text" name="findSubjects_f_studySubject.label" onblur="if (this.value == '') this.value = '<fmt:message key="study_subject_ID" bundle="${resword}"/>'" onfocus="if (this.value == '<fmt:message key="study_subject_ID" bundle="${resword}"/>') this.value = ''" value="<fmt:message key="study_subject_ID" bundle="${resword}"/>" class="navSearch"/>
                                             <input type="hidden" name="navBar" value="yes"/>
                                             <input type="submit" value="<fmt:message key="go" bundle="${resword}"/>"  class="navSearchButton"/>
                                         </form>
-
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
-                            </div></div></div></div>
+                            </div>
                         </td>
                     </tr>
-                                    </table>
+				</table>
             </div>
-            <!-- End shaded box border DIVs -->
-        </div></div></div></div></div></div></div></div></div>
 
 
-            </td>
-        </tr>
     </table>
+
     <!-- NAVIGATION DROP-DOWN -->
-
-
+    
 <div id="nav_hide" style="position: absolute; left: 0px; top: 0px; visibility: hidden; z-index: 2; width: 100%; height: 400px;">
-
-<a href="#" onmouseover="hideSubnavs();"><img src="${urlPrefix}images/spacer.gif" alt="" width="1000" height="400" border="0"/></a>
+	<a href="#" onmouseover="hideSubnavs();"><img src="${urlPrefix}images/spacer.gif" alt="" width="1000" height="400" border="0"/></a>
 </div>
 
-
-    </div>
-    <img src="${urlPrefix}images/spacer.gif" width="596" height="1"><br>
+<img src="${urlPrefix}images/spacer.gif" width="596" height="1"><br>
 <!-- End Main Navigation -->
 <div id="subnav_Tasks" class="dropdown">
     <div class="dropdown_BG">
@@ -210,7 +203,7 @@
         <br clear="all">
         </c:if>
         <c:if test="${userRole.investigator}">
-<%--        <div class="taskGroup"><fmt:message key="nav_submit_data" bundle="${resword}"/></div>
+        <div class="taskGroup"><fmt:message key="nav_submit_data" bundle="${resword}"/></div>
         <div class="taskLeftColumn">
             <div class="taskLink"><a href="${urlPrefix}ListStudySubjects"><fmt:message key="nav_subject_matrix" bundle="${resword}"/></a></div>
             <c:if test="${study.status.available}">
@@ -225,7 +218,7 @@
             <div class="taskLink"><a href="${urlPrefix}ViewStudyEvents"><fmt:message key="nav_view_events" bundle="${resword}"/></a></div>
             <div class="taskLink"><a href="${urlPrefix}ImportCRFData"><fmt:message key="nav_import_data" bundle="${resword}"/></a></div>
         </div>
-        <br clear="all"> *** --%>
+        <br clear="all">
         <div class="taskGroup"><fmt:message key="nav_extract_data" bundle="${resword}"/></div>
         <div class="taskLeftColumn">
             <div class="taskLink"><a href="${urlPrefix}ViewDatasets"><fmt:message key="nav_view_datasets" bundle="${resword}"/></a></div>
@@ -297,15 +290,6 @@
         </div>
         <div class="taskRightColumn">
             <div class="taskLink"><a href="${urlPrefix}ListStudyUser"><fmt:message key="nav_users" bundle="${resword}"/></a></div>
-            <%--
-            <c:choose>
-                <c:when test="${study.parentStudyId > 0 && (userRole.coordinator || userRole.director) }">
-                </c:when>
-                <c:otherwise>
-                    <div class="taskLink"><a href="${urlPrefix}ListSite?read=true"><fmt:message key="nav_sites" bundle="${resword}"/></a></div>
-                </c:otherwise>
-            </c:choose>
-             --%>
         </div>
         <br clear="all">
         </c:if>
@@ -333,4 +317,3 @@
         <div></div>
     </div>
 </div>
-<!-- end include/navBar.jsp -->

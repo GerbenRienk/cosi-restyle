@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.util.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!-- start include/showPageMessages.jsp -->
 <jsp:useBean scope='request' id='pageMessages' class='java.util.ArrayList'/>
 
 <c:if test="${!empty pageMessages}">
@@ -16,4 +15,3 @@
 
 </div></div></div></div></div></div></div></div>
 </c:if>
-<!-- end include/showPageMessages.jsp -->

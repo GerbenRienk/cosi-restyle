@@ -10,7 +10,7 @@ View
   Restore
   Reassigned
   Sign--%>
-<!-- start of include/sideIconsSubject.jsp -->
+
 <tr id="sidebar_IconKey_open">
     <td class="sidebar_tab">
 
@@ -22,10 +22,10 @@ View
             <tr>
                 <td><strong><u><fmt:message key="statuses" bundle="${reswords}"/></u></strong></td>
             </tr>
-			<tr><c:if test="${userRole.manageStudy}">
+            <tr>
                 <td>&nbsp;<img src="images/icon_NotStarted.gif"></td>
                 <td><fmt:message key="not_started" bundle="${reswords}"/></td>
-            </tr></c:if>
+            </tr>
             <tr>
                 <td>&nbsp;<img src="images/icon_Scheduled.gif"></td>
                 <td><fmt:message key="scheduled" bundle="${reswords}"/></td>
@@ -46,18 +46,18 @@ View
                 <td>&nbsp;<img src="images/icon_DEcomplete.gif"></td>
                 <td><fmt:message key="completed" bundle="${reswords}"/></td>
             </tr>
-            <tr><c:if test="${userRole.manageStudy}">
+            <tr>
                 <td>&nbsp;<img src="images/icon_Signed.gif"></td>
                 <td><fmt:message key="signed" bundle="${reswords}"/></td>
-            </tr></c:if>
-            <tr><c:if test="${userRole.manageStudy}">
+            </tr>
+            <tr>
                 <td>&nbsp;<img src="images/icon_Locked.gif"></td>
                 <td><fmt:message key="locked" bundle="${reswords}"/></td>
-            </tr></c:if>
-            <tr><c:if test="${userRole.manageStudy}">
+            </tr>
+            <tr>
                 <td>&nbsp;<img src="images/icon_Invalid.gif"></td>
                 <td><fmt:message key="invalid" bundle="${reswords}"/></td>
-            </tr></c:if>
+            </tr>
             <tr>
                 <td><strong><u><fmt:message key="actions" bundle="${reswords}"/></u></strong></td>
             </tr>
@@ -91,8 +91,6 @@ View
 
         <div class="sidebar_tab_content">
 
-            <a href="#" onClick="openDefWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/overview-openclinica/home-page#content-title-3610'); return false;"><fmt:message key="view_all_icons" bundle="${reswords}"/></a>
-
         </div>
 
     </td>
@@ -107,4 +105,3 @@ View
 
     </td>
 </tr>
-<!-- start of include/sideIconsSubject.jsp -->

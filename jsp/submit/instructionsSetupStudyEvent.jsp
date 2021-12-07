@@ -17,7 +17,7 @@
 		<td id="sidebar_Workflow_closed" style="display: none">
 		<a href="javascript:leftnavExpand('sidebar_Workflow_closed'); leftnavExpand('sidebar_Workflow_open');"><img src="images/<fmt:message key="image_dir" bundle="${resformat}"/>/tab_Workflow_closed.gif" border="0"></a>
 	</td>
-	<td id="sidebar_Workflow_open" style="display: all">
+	<td id="sidebar_Workflow_open" style="display: inline">
 	<table border="0" cellpadding="0" cellspacing="0" class="workflowBox">
 		<tr>
 			<td class="workflowBox_T" valign="top">

@@ -28,7 +28,7 @@
 		</td>
 
 	</tr>
-	<tr id="sidebar_Instructions_closed" style="display: all">
+	<tr id="sidebar_Instructions_closed" style="display: inline">
 		<td class="sidebar_tab">
 
 		<a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');"><img src="images/sidebar_expand.gif" border="0" align="right" hspace="10"></a>
@@ -83,12 +83,7 @@
 </c:forEach>
 
 
-<h1><span class="title_manage">addNewSubject.jsp <br />
-<c:out value="${study.name}" />:
-    <fmt:message key="add_subject" bundle="${resword}"/>
-    <a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/submit-data-module-overview/add-subject')">
-        <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${restext}"/>" title="<fmt:message key="help" bundle="${restext}"/>"></a>
-</span></h1>
+<h1><span class="title_manage"><c:out value="${study.name}" />: <fmt:message key="add_subject" bundle="${resword}"/></span></h1>
 
 <p class="text">
 <br/><fmt:message key="field_required" bundle="${resword}"/></P>
@@ -200,11 +195,9 @@
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
 					<td valign="top">
-            <!--layer-background-color:white;-->
-            <div id="testdiv1" style="position:absolute;visibility:hidden;z-index:8;background-color:white;"></div>
-
-            <div class="formfieldM_BG">
-						<input onfocus="this.select()" type="text" name="enrollmentDate" size="15" value="<c:out value="${enrollmentDate}" />" class="formfieldM" id="enrollmentDateField" />
+						<div class="formfieldM_BG">
+							<input onfocus="this.select()" type="text" name="enrollmentDate" size="15" value="<c:out value="${enrollmentDate}" />" class="formfieldM" id="enrollmentDateField" />
+						</div>
 					</td>
 					<td><span class="formlabel">*</span>
 					<A HREF="#">
@@ -234,41 +227,43 @@
 		<td valign="top">
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td valign="top"><div class="formfieldS_BG">
-						<select name="gender" class="formfieldS">
-							<option value="">-<fmt:message key="select" bundle="${resword}"/>-</option>
-							<c:choose>
-								<c:when test="${!empty chosenGender}">
-									<c:choose>
-										<c:when test='${chosenGender == "m"}'>
-											<option value="m" selected><fmt:message key="male" bundle="${resword}"/></option>
-											<option value="f"><fmt:message key="female" bundle="${resword}"/></option>
-										</c:when>
-										<c:otherwise>
-											<option value="m"><fmt:message key="male" bundle="${resword}"/></option>
-											<option value="f" selected><fmt:message key="female" bundle="${resword}"/></option>
-										</c:otherwise>
-									</c:choose>
-                                </c:when>
-	                            <c:otherwise>
-	                        		<option value="m"><fmt:message key="male" bundle="${resword}"/></option>
-	                        		<option value="f"><fmt:message key="female" bundle="${resword}"/></option>
-                            	</c:otherwise>
-                        	</c:choose>
-	                        </select>
-	            </td>
-	<td align="left">
-        <c:choose>
-        <c:when test="${study.studyParameterConfig.genderRequired !='false'}">
-           <span class="formlabel">*</span>
-        </c:when>
-        </c:choose>
-        <c:if test="${study.studyParameterConfig.discrepancyManagement=='true'}">
-	        <a href="#" onClick="openDSNoteWindow('CreateDiscrepancyNote?name=subject&field=gender&column=gender','spanAlert-gender'); return false;">
-	        <img name="flag_gender" src="images/icon_noNote.gif" border="0" alt="<fmt:message key="discrepancy_note" bundle="${resword}"/>" title="<fmt:message key="discrepancy_note" bundle="${resword}"/>"></a>
-	    </c:if>
-	</td>
-	</tr>
+					<td valign="top">
+						<div class="formfieldS_BG">
+							<select name="gender" class="formfieldS">
+								<option value="">-<fmt:message key="select" bundle="${resword}"/>-</option>
+								<c:choose>
+									<c:when test="${!empty chosenGender}">
+										<c:choose>
+											<c:when test='${chosenGender == "m"}'>
+												<option value="m" selected><fmt:message key="male" bundle="${resword}"/></option>
+												<option value="f"><fmt:message key="female" bundle="${resword}"/></option>
+											</c:when>
+											<c:otherwise>
+												<option value="m"><fmt:message key="male" bundle="${resword}"/></option>
+												<option value="f" selected><fmt:message key="female" bundle="${resword}"/></option>
+											</c:otherwise>
+										</c:choose>
+									</c:when>
+									<c:otherwise>
+										<option value="m"><fmt:message key="male" bundle="${resword}"/></option>
+										<option value="f"><fmt:message key="female" bundle="${resword}"/></option>
+									</c:otherwise>
+								</c:choose>
+							</select>
+						</div>
+					</td>
+					<td align="left">
+						<c:choose>
+						<c:when test="${study.studyParameterConfig.genderRequired !='false'}">
+						   <span class="formlabel">*</span>
+						</c:when>
+						</c:choose>
+						<c:if test="${study.studyParameterConfig.discrepancyManagement=='true'}">
+							<a href="#" onClick="openDSNoteWindow('CreateDiscrepancyNote?name=subject&field=gender&column=gender','spanAlert-gender'); return false;">
+							<img name="flag_gender" src="images/icon_noNote.gif" border="0" alt="<fmt:message key="discrepancy_note" bundle="${resword}"/>" title="<fmt:message key="discrepancy_note" bundle="${resword}"/>"></a>
+						</c:if>
+					</td>
+				</tr>
 	<tr>
 	<td colspan="2"><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="gender"/></jsp:include></td>
 	</tr>
@@ -284,21 +279,26 @@
 	  	<td valign="top">
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td valign="top"><div class="formfieldM_BG">
-						<input onfocus="this.select()" type="text" name="dob" size="15" value="<c:out value="${dob}" />" class="formfieldM" id="dobField" />
+					<td valign="top">
+						<div class="formfieldM_BG">
+							<input onfocus="this.select()" type="text" name="dob" size="15" value="<c:out value="${dob}" />" class="formfieldM" id="dobField" />
+						</div>
 					</td>
 					<td>
-					<A HREF="#">
-  					  <img src="images/bt_Calendar.gif" alt="<fmt:message key="show_calendar" bundle="${resword}"/>" title="<fmt:message key="show_calendar" bundle="${resword}"/>" border="0" id="dobTrigger" />
-                        <script type="text/javascript">
-                        Calendar.setup({inputField  : "dobField", ifFormat    : "<fmt:message key="date_format_calender" bundle="${resformat}"/>", button      : "dobTrigger" });
-                        </script>
-
-                    </a>
+						<span class="formlabel">*</span>
+					</td>
+					<td>
+						<A HREF="#">
+						  <img src="images/bt_Calendar.gif" alt="<fmt:message key="show_calendar" bundle="${resword}"/>" title="<fmt:message key="show_calendar" bundle="${resword}"/>" border="0" id="dobTrigger" />
+							<script type="text/javascript">
+							Calendar.setup({inputField  : "dobField", ifFormat    : "<fmt:message key="date_format_calender" bundle="${resformat}"/>", button      : "dobTrigger" });
+							</script>
+						</a>
                     </td>
 					<td>
-					<%--(<fmt:message key="date_format" bundle="${resformat}"/>)--%> * <c:if test="${study.studyParameterConfig.discrepancyManagement=='true'}"><a href="#" onClick="openDSNoteWindow('CreateDiscrepancyNote?name=subject&field=dob&column=date_of_birth','spanAlert-dob'); return false;">
-					<img name="flag_dob" src="images/icon_noNote.gif" border="0" alt="<fmt:message key="discrepancy_note" bundle="${resword}"/>" title="<fmt:message key="discrepancy_note" bundle="${resword}"/>"></a></c:if></td>
+						<c:if test="${study.studyParameterConfig.discrepancyManagement=='true'}"><a href="#" onClick="openDSNoteWindow('CreateDiscrepancyNote?name=subject&field=dob&column=date_of_birth','spanAlert-dob'); return false;">
+						<img name="flag_dob" src="images/icon_noNote.gif" border="0" alt="<fmt:message key="discrepancy_note" bundle="${resword}"/>" title="<fmt:message key="discrepancy_note" bundle="${resword}"/>"></a></c:if>
+					</td>
 				</tr>
 				<tr>
 					<td colspan="2"><jsp:include page="../showMessage.jsp"><jsp:param name="key" value="dob"/></jsp:include></td>
@@ -313,8 +313,10 @@
 	  	<td valign="top">
 			<table border="0" cellpadding="0" cellspacing="0">
 				<tr>
-					<td valign="top"><div class="formfieldM_BG">
-						<input onfocus="this.select()" type="text" name="yob" size="15" value="<c:out value="${yob}" />" class="formfieldM" />
+					<td valign="top">
+						<div class="formfieldM_BG">
+							<input onfocus="this.select()" type="text" name="yob" size="15" value="<c:out value="${yob}" />" class="formfieldM" />
+						</div>
 					</td>
 					<td>(<fmt:message key="date_format_year" bundle="${resformat}"/>) *<c:if test="${study.studyParameterConfig.discrepancyManagement=='true'}"><a href="#" onClick="openDSNoteWindow('CreateDiscrepancyNote?name=subject&field=yob&column=date_of_birth','spanAlert-yob'); return false;">
 					<img name="flag_yob" src="images/icon_noNote.gif" border="0" alt="<fmt:message key="discrepancy_note" bundle="${resword}"/>" title="<fmt:message key="discrepancy_note" bundle="${resword}"/>"></a></c:if></td>
@@ -410,7 +412,6 @@
 </tr>
 </table>
 </form>
-<DIV ID="testdiv1" STYLE="position:absolute;visibility:hidden;z-index:10;background-color:white;layer-background-color:white;"></DIV>
 
 <br>
 

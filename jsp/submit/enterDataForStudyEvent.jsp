@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start submit/enterDataForStudyEvent.jsp -->
 <jsp:useBean scope='request' id='eventId' class='java.lang.String'/>
 <c:set var="eventId" value="${eventId}"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.words" var="resword"/>
@@ -70,10 +69,7 @@
 <jsp:useBean scope="request" id="uncompletedEventDefinitionCRFs" class="java.util.ArrayList" />
 <jsp:useBean scope="request" id="displayEventCRFs" class="java.util.ArrayList" />
 
-<h1><span class="title_manage">
-<fmt:message key="enter_or_validate_data" bundle="${resword}"/><c:out value="${studyEvent.studyEventDefinition.name}" />
- <a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/submit-data-module-overview/schedule-event#enterData')">
- <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a> </span></h1>
+<h1><span class="title_manage"><fmt:message key="enter_or_validate_data" bundle="${resword}"/><c:out value="${studyEvent.studyEventDefinition.name}" /></span></h1>
 
 
 
@@ -237,7 +233,6 @@
 
 </div></div></div></div></div></div></div></div>
 </div>
-
 
 </div>
 
@@ -658,10 +653,10 @@
     <input type="submit" name="Submit" value="<fmt:message key="view_this_subject_record" bundle="${resword}"/>" class="button_xlong">
     <input type="button" onclick="confirmExit('ListStudySubjects');"  name="exit" value="<fmt:message key="exit" bundle="${resword}"/>   " class="button_medium"/>
 </form>
-<script>leftnavExpand('globalRecord');javascript:setImage('ExpandGroup5','images/bt_Collapse.gif');</script>
+
+
 <c:import url="instructionsEnterData.jsp">
     <c:param name="currStep" value="eventOverview" />
 </c:import>
-<script>javascript:leftnavExpand('sidebar_StudyEvents_open'); leftnavExpand('sidebar_StudyEvents_closed');</script>
+
 <jsp:include page="../include/footer.jsp"/>
-<!-- end submit/enterDataForStudyEvent.jsp -->

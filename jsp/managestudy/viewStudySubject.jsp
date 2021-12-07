@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<!-- start of managestudy/viewStudySubject.jsp -->
+
 
 <fmt:setBundle basename="org.akaza.openclinica.i18n.notes" var="restext"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
@@ -88,44 +88,16 @@
 <jsp:useBean scope="request" id="groups" class="java.util.ArrayList"/>
 <jsp:useBean scope="request" id="from" class="java.lang.String"/>
 
-<script language="JavaScript">
-    function leftnavExpand(strLeftNavRowElementName){
-      var objLeftNavRowElement;
-
-      objLeftNavRowElement = MM_findObj(strLeftNavRowElementName);
-      if (objLeftNavRowElement != null) {
-        if (objLeftNavRowElement.style) { objLeftNavRowElement = objLeftNavRowElement.style; }
-          objLeftNavRowElement.display = (objLeftNavRowElement.display == "none" ) ? "" : "none";
-          objExCl = MM_findObj("excl_"+strLeftNavRowElementName);
-          if(objLeftNavRowElement.display == "none"){
-              objExCl.src = "images/bt_Expand.gif";
-          }else{
-              objExCl.src = "images/bt_Collapse.gif";
-          }
-        }
-      }
-</script>
-
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-    <tr><td>
-        <h1>
-            <div class="title_manage">
-                <fmt:message key="view_subject2" bundle="${resword}"/><c:out value="${studySub.label}"/>
-                <a href="javascript:openDocWindow('https://docs.openclinica.com/3.1/openclinica-user-guide/submit-data-module-overview/view-subject')">
-                    <img src="images/bt_Help_Manage.gif" border="0" alt="<fmt:message key="help" bundle="${resword}"/>" title="<fmt:message key="help" bundle="${resword}"/>"></a>
-
-           </div>
-        </h1>
-        </td>
-    </tr>
+    <tr><td><h1><div class="title_manage"><fmt:message key="view_subject2" bundle="${resword}"/><c:out value="${studySub.label}"/></div></h1></td></tr>
 </table>
 
-
-
-
-
-
-
+<%-- <p>
+    <a href="#events"><fmt:message key="events" bundle="${resword}"/></a> &nbsp; &nbsp; &nbsp;
+    <a href="#group"><fmt:message key="group" bundle="${resword}"/></a> &nbsp;&nbsp;&nbsp;
+    <a href="#global"><fmt:message key="global_subject_record" bundle="${resword}"/></a> &nbsp;&nbsp;&nbsp;
+    <a href="javascript:openDocWindow('ViewStudySubjectAuditLog?id=<c:out value="${studySub.id}"/>')"><fmt:message key="audit_logs" bundle="${resword}"/></a>
+</p> --%>
 
 <c:choose>
     <c:when test="${isAdminServlet == 'admin' && userBean.sysAdmin && module=='admin'}">
@@ -135,7 +107,7 @@
 
         <c:choose>
             <c:when test="${userRole.manageStudy}">
-                <div class="table_title_manage">
+                <div class="table_titla_manage">
             </c:when>
             <c:otherwise>
                 <div class="table_title_submit">
@@ -403,7 +375,7 @@
 		                    <td class="table_cell_top">
 		                        <c:if test="${subjectStudy.parentStudyId>0}">
 		                            <a href="ViewStudy?id=<c:out value="${subjectStudy.id}"/>"><c:out value="${subjectStudy.name}"/></a>
-		                        </c:if>&nbsp; line 406</td>
+		                        </c:if>&nbsp;</td>
 						</tr>
 
 					</tbody></table>
@@ -511,7 +483,7 @@
 
         <c:choose>
             <c:when test="${userRole.manageStudy}">
-                <div class="table_title_manage">
+                <div class="table_titla_manage">
             </c:when>
             <c:otherwise>
                 <div class="table_title_submit">
@@ -542,7 +514,7 @@
 <div class="table_titla_manage">
 </c:when>
 <c:otherwise>
-<div class="table_title_submit not_for_cosi">
+<div class="table_title_submit">
     </c:otherwise>
     </c:choose>
 
@@ -637,7 +609,7 @@
 
 <c:choose>
 <c:when test="${userRole.manageStudy}">
-<div class="table_title_manage">
+<div class="table_titla_manage">
 </c:when>
 <c:otherwise>
 <div class="table_title_submit">
@@ -655,10 +627,10 @@
 
 <c:choose>
 <c:when test="${userRole.manageStudy}">
-<div class="table_title_manage">
+<div class="table_titla_manage">
 </c:when>
 <c:otherwise>
-<div class="table_title_submit not_for_cosi">
+<div class="table_title_submit">
     </c:otherwise>
     </c:choose>
 
@@ -809,8 +781,8 @@
 </c:choose>
 <!-- End Main Content Area -->
 
-<c:if test="${userRole.investigator}"><style type="text/css">.not_for_cosi{visibility: hidden; display: none;}</style></c:if>
+
 
 <jsp:include page="../include/footer.jsp"/>
-<!-- end of managestudy/viewStudySubject.jsp -->
+
 <script type="text/javascript" src="includes/studySubject/viewStudySubject.js"></script>

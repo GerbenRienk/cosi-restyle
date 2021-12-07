@@ -118,7 +118,7 @@
 					</tr>
 				</table>
 
-<script>leftnavExpand('sidebar_Workflow_closed'); leftnavExpand('sidebar_Workflow_open');</script>
+
 		<!-- end Workflow items -->
 
 				</div>
