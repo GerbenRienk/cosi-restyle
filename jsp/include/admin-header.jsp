@@ -61,7 +61,7 @@ onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../includ
 	<tr>
 		<td valign="top">
 <!-- Header Table -->
-<table border="0" cellpadding="0" cellspacing="0" class="header">
+<table class="header">
 			<tr>
 				<td valign="top">
 
