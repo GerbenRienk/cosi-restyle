@@ -14,7 +14,7 @@
 				<c:if test="${userBean != null && userBean.id>0}">	 
 					<c:choose>
 						<c:when test="${!empty pageMessages || param.message == 'authentication_failed'|| param.alertmessage !=null}">
-							<tr id="sidebar_Alerts_open" style="display: inline">
+							<tr id="sidebar_Alerts_open" style="display: all">
 								<td class="sidebar_tab">
 									<a href="javascript:leftnavExpand('sidebar_Alerts_open'); leftnavExpand('sidebar_Alerts_closed');">
 									<img src="${pageContext.request.contextPath}/images/sidebar_collapse.gif" class="sidebar_collapse_expand"></a>
@@ -61,7 +61,7 @@
 									</div>
 								</td>
 							</tr>
-							<tr id="sidebar_Alerts_closed" style="display: inline">
+							<tr id="sidebar_Alerts_closed" style="display: all">
 								<td class="sidebar_tab">
 									<a href="javascript:leftnavExpand('sidebar_Alerts_open'); leftnavExpand('sidebar_Alerts_closed');">
 									<img src="${pageContext.request.contextPath}/images/sidebar_expand.gif" class="sidebar_collapse_expand"></a>

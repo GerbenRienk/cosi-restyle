@@ -40,7 +40,7 @@
 <h1><span class="title_manage"><fmt:message key="change_user_profile" bundle="${resword}"/></span></h1>
 <strong>
 <fmt:message key="browser_locale" bundle="${resword}"/>
-<c:set var="language"  value="<%=ResourceBundleProvider.getLocale().getDisplayLanguage()%>"></c:set>
+ <c:set var="language"  value="<%=ResourceBundleProvider.getLocale().getDisplayLanguage()%>"></c:set>
 <c:set var="country"  value="<%=ResourceBundleProvider.getLocale().getDisplayCountry()%>"></c:set>
                         <c:out value="${language}"/>
 						<c:if test="${country!=''}">
@@ -56,8 +56,10 @@
 
 
 <table>
-  <tr><td class="formlabel"><fmt:message key="first_name" bundle="${resword}"/>:</td><td><div class="formfieldXL_BG"><input type="text" name="firstName" value="<c:out value="${userBean1.firstName}"/>" class="formfieldXL"></div>
-  <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="firstName"/></jsp:include></td><td class="formlabel">*</td></tr>
+  <tr>
+  	<td class="formlabel"><fmt:message key="first_name" bundle="${resword}"/>:</td>
+  	<td><div class="formfieldXL_BG"><input type="text" name="firstName" value="<c:out value="${userBean1.firstName}"/>" class="formfieldXL"></div>
+  	<jsp:include page="../showMessage.jsp"><jsp:param name="key" value="firstName"/></jsp:include></td><td class="formlabel">*</td></tr>
   <tr><td class="formlabel"><fmt:message key="last_name" bundle="${resword}"/>:</td><td><div class="formfieldXL_BG"><input type="text" name="lastName" value="<c:out value="${userBean1.lastName}"/>" class="formfieldXL"></div>
   <jsp:include page="../showMessage.jsp"><jsp:param name="key" value="lastName"/></jsp:include></td><td class="formlabel">*</td></tr>
   <tr><td class="formlabel"><fmt:message key="email" bundle="${resword}"/>:</td><td><div class="formfieldXL_BG"><input type="text" name="email" value="<c:out value="${userBean1.email}"/>" class="formfieldXL"></div>

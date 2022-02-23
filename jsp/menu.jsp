@@ -35,7 +35,7 @@
 </div>
 
 <!-- then instructions-->
-	<tr id="sidebar_Instructions_open" style="display: inline">
+	<tr id="sidebar_Instructions_open" style="display: all">
         <td class="sidebar_tab">
 	        <a href="javascript:leftnavExpand('sidebar_Instructions_open'); leftnavExpand('sidebar_Instructions_closed');">
     	    <img src="images/sidebar_collapse.gif" class="sidebar_collapse_expand"></a>

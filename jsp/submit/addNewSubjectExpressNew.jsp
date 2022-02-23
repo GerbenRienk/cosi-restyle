@@ -220,10 +220,8 @@
         <td>
             <table>
                 <tr>
-                    <td>
-                        <div class="formfieldM_BG">
-                            <input onfocus="this.select()" type="text" name="dob" value="<c:out value="${dob}" />" class="formfieldM" id="dobField" />
-                        </div>
+                    <td><div class="formfieldM_BG">
+                        <input onfocus="this.select()" type="text" name="dob" value="<c:out value="${dob}" />" class="formfieldM" id="dobField" />
                     </td>
                     <td>
                     <a href="#">
@@ -399,4 +397,4 @@
 </div>
 
 </form>
-<!-- end of submit/addNewSubjectExpressNew.jsp -->
+<!-- start of submit/addNewSubjectExpressNew.jsp -->

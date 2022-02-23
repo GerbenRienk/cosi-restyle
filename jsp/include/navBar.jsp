@@ -64,7 +64,9 @@
 </c:if>
 
 <!-- Main Navigation -->
-     <div class="oc_nav">
+	<div class="oc_nav">
+	<!-- table to put the logo left and the menu things right -->
+	<table><tr><td class="main_left_column"><div class="logo"><img src="${pageContext.request.contextPath}/images/Logo.gif"></div></td><td>
         <div id="StudyInfo">
             <c:choose>
                 <c:when test='${study.parentStudyId > 0}'>
@@ -92,7 +94,7 @@
                     <tr>
                         <td>
                             <div id="bt_Home" class="nav_bt">
-                            <table class="navbox_center">
+                            <table>
                                 <tr>
                                     <td>
                                         <ul>
@@ -148,11 +150,9 @@
                         </td>
                     </tr>
 				</table>
-            </div>
-
-
-    </table>
-
+		</div>
+	</div> 
+    
     <!-- NAVIGATION DROP-DOWN -->
     
 <div id="nav_hide" style="position: absolute; left: 0px; top: 0px; visibility: hidden; z-index: 2; width: 100%; height: 400px;">
@@ -316,4 +316,5 @@
         <br clear="all">
         <div></div>
     </div>
+</td></tr></table> <!-- end of table for just the logo and the menu -->
 </div>

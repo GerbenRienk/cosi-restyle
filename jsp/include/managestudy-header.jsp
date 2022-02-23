@@ -8,8 +8,6 @@
 <fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
 <fmt:setBundle basename="org.akaza.openclinica.i18n.format" var="resformat"/>
 
-
-
 <jsp:useBean scope='session' id='userBean' class='org.akaza.openclinica.bean.login.UserAccountBean'/>
 <jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean' />
 <jsp:useBean scope='session' id='userRole' class='org.akaza.openclinica.bean.login.StudyUserRoleBean' />
@@ -50,41 +48,23 @@
 
 
 <body class="main_BG"
-
 <c:choose>
-
-<c:when test="${tabId!= null && tabId>0}">
-onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../include/showPopUp2.jsp"/>"
-</c:when>
-
-<c:otherwise>
-
-<jsp:include page="../include/showPopUp.jsp"/>
-
-</c:otherwise>
+	<c:when test="${tabId!= null && tabId>0}">
+		onload="TabsForwardByNum(<c:out value="${tabId}"/>);<jsp:include page="../include/showPopUp2.jsp"/>"
+	</c:when>
+	<c:otherwise>
+		<jsp:include page="../include/showPopUp.jsp"/>
+	</c:otherwise>
 </c:choose>
 >
-<table border="0" cellpadding="0" cellspacing="0" width="100%" height="100%" class=
-  "background">
+<script language="JavaScript">var StatusBoxValue=1;	</script>
+
+<table class="background">
 	<tr>
-		<td valign="top">
-<!-- Header Table -->
-
-<!-- NEW 06-22 -->
-	<script language="JavaScript">
-	var StatusBoxValue=1;
-	</script>
-
-<table border="0" cellpadding="0" cellspacing="0" class="header">
-
-			<tr>
-				<td valign="top">
-
-<!-- Logo -->
-
-	<div class="logo"><img src="images/Logo.gif"></div>
-
-<!-- Main Navigation -->
-
-<jsp:include page="../include/navBar.jsp"/>
-<!-- End Main Navigation -->
+		<td class="header_td">
+			<table class="header">
+				<tr>
+					<td class="header_td">
+						<div class="logo"><img src="images/Logo.gif"></div>
+						<jsp:include page="../include/navBar.jsp"/>
+						<!-- End Main Navigation -->

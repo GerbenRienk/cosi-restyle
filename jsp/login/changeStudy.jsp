@@ -8,7 +8,7 @@
 
 <jsp:include page="../include/home-header.jsp"/>
 <!-- start of login/changeStudy.jsp -->
-
+<div></div>
 <!-- move the alert message to the sidebar-->
 <jsp:include page="../include/sideAlert.jsp"/>
 <!-- then instructions-->
@@ -59,7 +59,7 @@
 		<input type="hidden" name="action" value="confirm">
 		<p><fmt:message key="please_choose_study_list" bundle="${restext}"/>:</p>
 
-		<table> <!-- start of table with all study-info -->
+		<table class="contenttable"> <!-- start of table with all study-info -->
 		<c:forEach var="studyRole" items="${studies}">
 			<c:set var="statusId" value="${studyRole.status.id}"/>
 			<c:choose>

@@ -53,7 +53,7 @@
 			<table class="header"><!-- Header Table -->
 				<tr>
 					<td class="header_td">
-						<div class="logo"><img src="${pageContext.request.contextPath}/images/Logo.gif"></div>
+						
 						<!-- Main Navigation -->
 						<jsp:include page="../include/navBar.jsp">
         					<jsp:param name="isSpringController" value="true" />

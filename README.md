@@ -1,5 +1,5 @@
 # cosi-restyle
-a slightly modified openclinica for cosi round 5
+a slightly modified openclinica for cosi round 6
 
 we have directories:
 - i18n: these hold not only the properties files for the different languages, but also the cosi-specific terms

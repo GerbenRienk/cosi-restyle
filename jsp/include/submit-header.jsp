@@ -66,14 +66,10 @@ onload="<jsp:include page="../include/showPopUp.jsp"/>"
 	var StatusBoxValue=1;
 	</script>
 
-<!--
-<table class="header">
-			<tr>
-				<td valign="top">
--->
-<!-- Logo -->
-
-	<div class="logo"><img src="images/Logo.gif"></div>
+<!-- Header Table -->
+<table >
+            <tr>
+                <td class="header_td">
 
 <!-- Main Navigation -->
 

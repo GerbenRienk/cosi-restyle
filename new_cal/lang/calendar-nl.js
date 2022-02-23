@@ -11,14 +11,14 @@
 
 // full day names
 Calendar._DN = new Array
-("zondag",
- "maandag",
- "dinsdag",
- "woensdag",
- "donderdag",
- "vrijdag",
- "zaterdag",
- "zondag");
+("Sunday",
+ "Monday",
+ "Tuesday",
+ "Wednesday",
+ "Thursday",
+ "Friday",
+ "Saturday",
+ "Sunday");
 
 // Please note that the following array of short day names (and the same goes
 // for short month names, _SMN) isn't absolutely necessary.  We give it here
@@ -34,14 +34,14 @@ Calendar._DN = new Array
 
 // short day names
 Calendar._SDN = new Array
-("zo",
- "ma",
- "di",
- "wo",
- "do",
- "vr",
- "za",
- "zo");
+("Sun",
+ "Mon",
+ "Tue",
+ "Wed",
+ "Thu",
+ "Fri",
+ "Sat",
+ "Sun");
 
 // First day of the week. "0" means display Sunday first, "1" means display
 // Monday first, etc.
@@ -49,87 +49,74 @@ Calendar._FD = 0;
 
 // full month names
 Calendar._MN = new Array
-("januari",
- "februari",
- "maart",
- "april",
- "mei",
- "juni",
- "juli",
- "augustus",
- "september",
- "oktober",
- "november",
- "december");
+("January",
+ "February",
+ "March",
+ "April",
+ "May",
+ "June",
+ "July",
+ "August",
+ "September",
+ "October",
+ "November",
+ "December");
 
 // short month names
 Calendar._SMN = new Array
-("jan",
- "feb",
- "mar",
- "apr",
- "mei",
- "jun",
- "jul",
- "aug",
- "sep",
- "okt",
- "nov",
- "dec");
+("Jan",
+ "Feb",
+ "Mar",
+ "Apr",
+ "May",
+ "Jun",
+ "Jul",
+ "Aug",
+ "Sep",
+ "Oct",
+ "Nov",
+ "Dec");
 
 // tooltips
 Calendar._TT = {};
-Calendar._TT["INFO"] = "Info";
+Calendar._TT["INFO"] = "About the calendar";
 
 Calendar._TT["ABOUT"] =
-"DHTML Datum/Tijd Selector\n" +
-"(c) dynarch.com 2002-2005 / Author: Mihai Bazon\n" +
-"Ga voor de meest recente versie naar: http://www.dynarch.com/projects/calendar/\n" +
-"Verspreid onder de GNU LGPL. Zie http://gnu.org/licenses/lgpl.html voor details." +
+"DHTML Date/Time Selector\n" +
+"(c) dynarch.com 2002-2005 / Author: Mihai Bazon\n" + // don't translate this this ;-)
+"For latest version visit: http://www.dynarch.com/projects/calendar/\n" +
+"Distributed under GNU LGPL.  See http://gnu.org/licenses/lgpl.html for details." +
 "\n\n" +
-"Datum selectie:\n" +
-"- Gebruik de \xab \xbb knoppen om een jaar te selecteren\n" +
-"- Gebruik de " + String.fromCharCode(0x2039) + ", " + String.fromCharCode(0x203a) + " knoppen om een maand te selecteren\n" +
-"- Houd de muis ingedrukt op de genoemde knoppen voor een snellere selectie.";
+"Date selection:\n" +
+"- Use the \xab, \xbb buttons to select year\n" +
+"- Use the " + String.fromCharCode(0x2039) + ", " + String.fromCharCode(0x203a) + " buttons to select month\n" +
+"- Hold mouse button on any of the above buttons for faster selection.";
 Calendar._TT["ABOUT_TIME"] = "\n\n" +
-"Tijd selectie:\n" +
-"- Klik op een willekeurig onderdeel van het tijd gedeelte om het te verhogen\n" +
-"- of Shift-klik om het te verlagen\n" +
-"- of klik en sleep voor een snellere selectie.";
+"Time selection:\n" +
+"- Click on any of the time parts to increase it\n" +
+"- or Shift-click to decrease it\n" +
+"- or click and drag for faster selection.";
 
-//Calendar._TT["TOGGLE"] = "Selecteer de eerste week-dag";
-Calendar._TT["PREV_YEAR"] = "Vorig jaar (ingedrukt voor menu)";
-Calendar._TT["PREV_MONTH"] = "Vorige maand (ingedrukt voor menu)";
-Calendar._TT["GO_TODAY"] = "Ga naar Vandaag";
-Calendar._TT["NEXT_MONTH"] = "Volgende maand (ingedrukt voor menu)";
-Calendar._TT["NEXT_YEAR"] = "Volgend jaar (ingedrukt voor menu)";
-Calendar._TT["SEL_DATE"] = "Selecteer datum";
-Calendar._TT["DRAG_TO_MOVE"] = "Klik en sleep om te verplaatsen";
-Calendar._TT["PART_TODAY"] = " (vandaag)";
-//Calendar._TT["MON_FIRST"] = "Toon Maandag eerst";
-//Calendar._TT["SUN_FIRST"] = "Toon Zondag eerst";
-
-
-Calendar._TT["PREV_YEAR"] = "vorig jaar (ingedrukt houden voor lijst)";
-Calendar._TT["PREV_MONTH"] = "vorige maand (ingedrukt houden voor lijst)";
-Calendar._TT["GO_TODAY"] = "vandaag";
-Calendar._TT["NEXT_MONTH"] = "volgende maand (ingedrukt houden voor lijst)";
-Calendar._TT["NEXT_YEAR"] = "volgend jaar (ingedrukt houden voor lijst)";
-Calendar._TT["SEL_DATE"] = "kies een datum";
-Calendar._TT["DRAG_TO_MOVE"] = "klikken en ingedrukt houden om te slepen";
-Calendar._TT["PART_TODAY"] = " (vandaag)";
+Calendar._TT["PREV_YEAR"] = "Prev. year (hold for menu)";
+Calendar._TT["PREV_MONTH"] = "Prev. month (hold for menu)";
+Calendar._TT["GO_TODAY"] = "Go Today";
+Calendar._TT["NEXT_MONTH"] = "Next month (hold for menu)";
+Calendar._TT["NEXT_YEAR"] = "Next year (hold for menu)";
+Calendar._TT["SEL_DATE"] = "Select date";
+Calendar._TT["DRAG_TO_MOVE"] = "Drag to move";
+Calendar._TT["PART_TODAY"] = " (today)";
 
 // the following is to inform that "%s" is to be the first day of week
 // %s will be replaced with the day name.
-Calendar._TT["DAY_FIRST"] = "Begin met %s";
+Calendar._TT["DAY_FIRST"] = "Display %s first";
 
 // This may be locale-dependent.  It specifies the week-end days, as an array
 // of comma-separated numbers.  The numbers are from 0 to 6: 0 means Sunday, 1
 // means Monday, etc.
 Calendar._TT["WEEKEND"] = "0,6";
 
-Calendar._TT["CLOSE"] = "sluiten";
-Calendar._TT["TODAY"] = "vandaag";
+Calendar._TT["CLOSE"] = "Close";
+Calendar._TT["TODAY"] = "Today";
 Calendar._TT["TIME_PART"] = "(Shift-)Click or drag to change value";
 
 // date formats

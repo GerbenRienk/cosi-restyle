@@ -10,7 +10,8 @@
 <jsp:useBean scope='session' id='study' class='org.akaza.openclinica.bean.managestudy.StudyBean' />
 <jsp:useBean scope='session' id='userRole' class='org.akaza.openclinica.bean.login.StudyUserRoleBean' />
 <jsp:useBean scope='request' id='isAdminServlet' class='java.lang.String' />
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <c:set var="contextPath" value="${fn:replace(pageContext.request.requestURL, fn:substringAfter(pageContext.request.requestURL, pageContext.request.contextPath), '')}" />
@@ -71,11 +72,16 @@
     <tr>
         <td>
 <!-- Header Table -->
-<table class="header">
+<table border='1'>
             <tr>
-                <td>
-<!-- Logo -->
+                <td class="header_td">
+<!-- 
+		Logo old style
     <div class="logo"><img src="${pageContext.request.contextPath}/images/Logo.gif"></div>
+	-->
+	
+	
 <!-- Main Navigation -->
     <jsp:include page="../include/navBar.jsp"/>
+
 <!-- End Main Navigation -->
