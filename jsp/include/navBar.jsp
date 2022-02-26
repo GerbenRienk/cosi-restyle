@@ -1,3 +1,5 @@
+<!-- start of include/navBar.jsp -->
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page import="org.akaza.openclinica.i18n.util.ResourceBundleProvider" %>
@@ -66,7 +68,7 @@
 <!-- Main Navigation -->
 	<div class="oc_nav">
 	<!-- table to put the logo left and the menu things right -->
-	<table><tr><td class="main_left_column"><div class="logo"><img src="${pageContext.request.contextPath}/images/Logo.gif"></div></td><td>
+	<table><tr><td class="main_left_column"><div class="logo"><img src="${pageContext.request.contextPath}/images/h-logo-blue.svg"></div></td><td>
         <div id="StudyInfo">
             <c:choose>
                 <c:when test='${study.parentStudyId > 0}'>
@@ -90,7 +92,7 @@
         
 		<div class="navbox_center">
                 <!-- Top Navigation Row -->
-                <table >
+                <table>
                     <tr>
                         <td>
                             <div id="bt_Home" class="nav_bt">
@@ -133,6 +135,7 @@
                                         </ul>
                                     </td>
                                     <td >
+										<img src="${urlPrefix}images/spacer.gif" width="100px" height="1"> <!-- added space between tasks and the search box -->
 										<div id="SearchBox">
                                         <form METHOD="GET" action="${urlPrefix}ListStudySubjects" onSubmit=" if (document.forms[0]['findSubjects_f_studySubject.label'].value == '<fmt:message key="study_subject_ID" bundle="${resword}"/>') { document.forms[0]['findSubjects_f_studySubject.label'].value=''}">
                                             <c:if test="${not empty sessionScope.supportURL}">
@@ -318,3 +321,4 @@
     </div>
 </td></tr></table> <!-- end of table for just the logo and the menu -->
 </div>
+<!-- end of include/navBar.jsp -->

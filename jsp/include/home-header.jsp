@@ -72,7 +72,7 @@
     <tr>
         <td>
 <!-- Header Table -->
-<table border='1'>
+<table >
             <tr>
                 <td class="header_td">
 <!-- 

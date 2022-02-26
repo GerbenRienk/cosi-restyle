@@ -47,7 +47,7 @@
 	if(iev.length() > 1 && Double.valueOf(iev)<7) {%>
 	<div ID="logoIE6">&nbsp;</div>
 	<%} else {%>
-    <div ID="logo">&nbsp;</div>
+    <div ID="logo"></div>
   	<%}%>
     <!-- end LibreClinica logo -->
         <table>
@@ -72,7 +72,7 @@
 
 	<table class="loginBoxes">
     	<tr>
-        	<td class="loginBox_T">&nbsp;</td>
+        	<td class="loginBox_T"><h1><font size="24em"> cosi round 6<br />&nbsp;<br />&nbsp;</font></h1></td>
 		</tr>
 		<tr>
             <td class="loginBox">

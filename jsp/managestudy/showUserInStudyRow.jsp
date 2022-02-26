@@ -18,7 +18,6 @@
         <c:if test="${currRow.bean.parentStudyId == 0}">
             <c:out value="${currRow.bean.role.description}"/>
         </c:if>
-
     </td>
     <td class="table_cell"><c:out value="${currRow.bean.studyName}"/></td>
     <td class="table_cell"><c:out value="${currRow.bean.status.name}"/></td>

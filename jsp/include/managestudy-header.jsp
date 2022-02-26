@@ -65,6 +65,6 @@
 			<table class="header">
 				<tr>
 					<td class="header_td">
-						<div class="logo"><img src="images/Logo.gif"></div>
+						<!-- <div class="logo"><img src="images/Logo.gif"></div> -->
 						<jsp:include page="../include/navBar.jsp"/>
 						<!-- End Main Navigation -->
