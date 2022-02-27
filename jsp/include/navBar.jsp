@@ -2,6 +2,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page import="org.akaza.openclinica.i18n.util.ResourceBundleProvider" %>
 
 <fmt:setBundle basename="org.akaza.openclinica.i18n.workflow" var="resworkflow"/>
@@ -64,11 +65,15 @@
 <c:if test="${requestFromSpringController == 'true' }">
       <c:set var="urlPrefix" value="${pageContext.request.contextPath}/"/>
 </c:if>
-
+<!-- find out if we're in test or not -->
+<c:choose>
+	<c:when test="${fn:contains(urlPrefix, '/cosi/')}"></c:when>
+	<c:otherwise><c:set var="test_or_not" value="<span class='test_message'>** test version **</span>" /></c:otherwise>
+</c:choose>
 <!-- Main Navigation -->
 	<div class="oc_nav">
 	<!-- table to put the logo left and the menu things right -->
-	<table><tr><td class="main_left_column"><div class="logo"><img src="${pageContext.request.contextPath}/images/h-logo-blue.svg"></div></td><td>
+	<table><tr><td class="main_left_column"><div class="logo"><img src="${pageContext.request.contextPath}/images/h-logo-blue.svg"><br />${test_or_not}</div></td><td>
         <div id="StudyInfo">
             <c:choose>
                 <c:when test='${study.parentStudyId > 0}'>
@@ -80,7 +85,7 @@
                 </c:otherwise>
             </c:choose>
             (<c:out value="${study.abbreviatedIdentifier}" />)&nbsp;&nbsp;|&nbsp;&nbsp;
-            <a href="${urlPrefix}ChangeStudy"><fmt:message key="change_study_site" bundle="${resworkflow}"/></a>
+            <a href="${urlPrefix}ChangeStudy"><fmt:message key="change_study_site" bundle="${resworkflow}"/></a> ${test_or_not}
         </div>
         <div id="UserInfo">
             <a href="${urlPrefix}UpdateProfile"><b><c:out value="${userBean.name}" /></b> (<c:out value="${userRole.role.description}" />)&nbsp;
@@ -88,7 +93,7 @@
             </a>&nbsp;|&nbsp;
             <a href="${urlPrefix}j_spring_security_logout"><fmt:message key="log_out" bundle="${resword}"/></a>
         </div>
-        <br/>
+        <br />
         
 		<div class="navbox_center">
                 <!-- Top Navigation Row -->
